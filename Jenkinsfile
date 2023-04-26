@@ -22,7 +22,7 @@ pipeline {
                 }
             }
                 }
-                        stage('Trigger AWS Code Build') {
+            stage('triggering aws code build') {
             steps {
                 dir("java-hello-world-with-maven")
                 {
@@ -33,7 +33,7 @@ pipeline {
                 }
             }
         }
+}
+}
 
-}
-}
 
