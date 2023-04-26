@@ -11,6 +11,14 @@ pipeline {
                 }
             }
         }
-
+                stage('Checkout code from the Git') {
+            steps {
+                script
+                {
+                    checkout_git.checkout_git()
+                }
+            }
+                }
     }
 }
+
