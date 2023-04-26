@@ -18,15 +18,15 @@ pipeline {
             steps {
                 script
                 {
-                    checkout_git.checkout_git("java-hello-world-with-maven")
+                   dir("dir1") checkout_git.checkout_git("java-hello-world-with-maven")
                 }
             }
                 }
-                        stage('Maven Build') {
+                stage('Maven Build') {
             steps {
                 script 
                 {
-                    maven_build.maven_build()
+                   dir("dir1") maven_build.maven_build()
                 }
             }
 
