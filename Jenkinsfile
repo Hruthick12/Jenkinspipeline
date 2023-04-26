@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script
                 {
-                   dir("dir1") checkout_git.checkout_git("java-hello-world-with-maven")
+                   dir("dir") {checkout_git.checkout_git("java-hello-world-with-maven")}
                 }
             }
                 }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script 
                 {
-                   dir("dir1") maven_build.maven_build()
+                   dir("dir") {maven_build.maven_build()}
                 }
             }
 
