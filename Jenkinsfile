@@ -18,19 +18,22 @@ pipeline {
             steps {
                 script
                 {
-                   dir("dir") {checkout_git.checkout_git("java-hello-world-with-maven")}
+                 checkout_git.checkout_git("java-hello-world-with-maven")
                 }
             }
                 }
-                stage('Maven Build') {
+                        stage('Trigger AWS Code Build') {
             steps {
+                dir("java-hello-world-with-maven")
+                {
                 script 
                 {
-                   dir("dir") {maven_build.maven_build()}
+                    aws_codebuild.aws_codebuild("java-project")
+                }
                 }
             }
+        }
 
-    }
 }
 }
 
