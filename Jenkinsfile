@@ -25,7 +25,7 @@ pipeline {
                 }
             stage('triggering aws code build') {
             steps {
-                dir("java-hello-world-with-maven")
+                dir("dir1")
                 {
                 script 
                 {
