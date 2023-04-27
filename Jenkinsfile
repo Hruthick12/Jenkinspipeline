@@ -1,9 +1,6 @@
 @Library('MyLibrary') _
 pipeline {
     agent any
-    tools{
-        maven "Maven"
-    }
     stages {
         
         stage('Hello World') {
