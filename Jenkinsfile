@@ -22,6 +22,7 @@ pipeline {
                  dir("dir1") {checkout_git.checkout_git("java-hello-world-with-maven")}
             }
                 }
+                }
             stage('triggering aws code build') {
             steps {
                 dir("java-hello-world-with-maven")
