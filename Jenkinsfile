@@ -17,10 +17,10 @@ pipeline {
                 stage('Checkout code from the Git') {
 
             steps {
-                script
-                {
-                 dir("dir1") {checkout_git.checkout_git("java-hello-world-with-maven")}
-            }
+                 parallel (
+                "1": {dir("dir1"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}},
+                //"2": {dir("mycoderepo"){script {checkout_git.checkout_git("mycoderepo")}}}
+                )
                 }
                 }
             stage('triggering aws code build') {
@@ -29,9 +29,12 @@ pipeline {
                 {
                 script 
                 {
-                    aws_codebuild.aws_codebuild("java-project")
+                    aws_codebuild.aws_codebuild("java-project", "us-east-1")
                 }
                 }
+                parallel (
+                "1": {dir("dir1"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}},
+                )
             }
         }
 }
