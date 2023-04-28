@@ -25,9 +25,7 @@ pipeline {
                         }
                   }                                
             }
-        
-        
-        stage('triggering aws code build.') {
+        stage('Trigger AWS Code Build') {
             steps {
                 dir("dir1")
                 {
