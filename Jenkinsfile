@@ -1,5 +1,5 @@
 @Library('MyLibrary')
-pipeline {
+pipeline{
     agent any
     tools{
         maven "Maven"
