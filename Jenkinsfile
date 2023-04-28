@@ -25,18 +25,18 @@ pipeline {
                 }
             stage('triggering aws code build') {
             steps {
-                /**dir("dir1")
+              dir("dir1")
                 {
                 script 
                 {
                     aws_codebuild.aws_codebuild("java-project", "us-east-1")
                 }
-                }**/
+             
                 
-              parallel (
-                "1": {dir("dir1"){script {aws_codebuild.aws_codebuild("java-project")}}},
+              //parallel (
+               // "1": {dir("dir1"){script {aws_codebuild.aws_codebuild("java-project")}}},
                 // "2": {dir("dir2"){script {aws_codebuild.aws_codebuild("java-project")}}}
-               )
+              // )
             }
         }
 }
