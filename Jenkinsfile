@@ -29,7 +29,7 @@ pipeline {
                 {
                 script 
                 {
-                    aws_codebuild.aws_codebuild("java-project", "us-east-1")
+                    aws_codebuild.aws_codebuild("java-project", "us-east-2")
                 }
              
                 
