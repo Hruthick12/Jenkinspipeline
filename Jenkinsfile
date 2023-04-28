@@ -19,7 +19,7 @@ pipeline {
             steps {
                  parallel (
                 "1": {dir("dir1"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}},
-                //"2": {dir("mycoderepo"){script {checkout_git.checkout_git("mycoderepo")}}}
+                "2": {dir("dir2"){script {checkout_git.checkout_git("simple-java-maven-app")}}}
                 )
                 }
                 }
@@ -35,6 +35,7 @@ pipeline {
                 
               parallel (
                 "1": {dir("dir1"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}},
+                 "2": {dir("dir2"){script {checkout_git.checkout_git("simple-java-maven-app")}}}
                )
             }
         }
