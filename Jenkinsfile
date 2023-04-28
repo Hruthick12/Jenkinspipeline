@@ -27,14 +27,17 @@ pipeline {
         
         stage('Trigger AWS Code Build') {
             steps {
-                dir("dir1")
+                /**dir("dir1")
                 {
                 script 
                 {
                       aws_codebuild.aws_codebuild("java-project")
                 }
-                }
+                }**/
+                parallel(
+                "1": {dir("dir1"){script {aws_codebuild.aws_codebuild("java-hello-world-with-maven")}}}
+                )
             }
-        }            
+        }
     }
 }
